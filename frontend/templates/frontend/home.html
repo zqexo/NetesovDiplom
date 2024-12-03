@@ -1,0 +1,20 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+{% block content %}
+    <head>
+        <meta charset="UTF-8">
+        <title>Домашняя страница</title>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </head>
+    <div class="container text-center mt-5">
+        <h1>Добро пожаловать!</h1>
+        <form method="post">
+            {% if user.is_authenticated %}
+                <a class="btn-primary" href="{% url 'frontend:user_profile' %}">Профиль</a>
+                <br>
+            {% else %}
+                <a class="btn-primary" href="{% url 'frontend:send_code' %}">Войти/Зарегистрироваться</a>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify Code</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<h1>Введите номер телефона без плюса, например (79990001122) <br> и код из смс</h1>
+<form method="post">
+    {% csrf_token %}
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Подтвердить</button>
+</form>
+</body>
+</html>
+{% endblock %}

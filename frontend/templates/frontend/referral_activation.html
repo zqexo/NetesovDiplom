@@ -1,0 +1,26 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Referral Activation</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<h1>Активировать реферальный код</h1>
+<form method="post">
+    {% csrf_token %}
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    {% if message %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endif %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Активировать</button>
+</form>
+</body>
+</html>
+{% endblock %}

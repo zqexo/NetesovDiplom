@@ -1,0 +1,29 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<h1>Профиль пользователя</h1>
+{% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+{% else %}
+    <p><strong>Телефон:</strong> +{{ phone }}</p>
+    <p><strong>Реферальный код:</strong> {{ invite_code }}</p>
+    <h2>Ваши рефералы:</h2>
+    <ul>
+        {% for invited_phone in invited_users %}
+            <li>{{ invited_phone }}</li>
+        {% endfor %}
+    <br>
+    <a href="{% url 'frontend:referral_activation' %}" class="btn btn-primary my-2">Указать реферальный код</a>
+    </ul>
+{% endif %}
+</body>
+</html>
+{% endblock %}

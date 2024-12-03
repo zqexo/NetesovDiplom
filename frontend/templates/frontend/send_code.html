@@ -1,0 +1,36 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Send Code</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<h1>Введите номер телефона для отправки кода</h1>
+<form method="post">
+    {% csrf_token %}
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    {% if message %}
+        <div class="alert alert-success">{{ message }}</div>
+        <br>
+        <a href="{% url 'frontend:verify_code' %}" class="btn btn-primary my-2">Ввести код</a>
+    {% endif %}
+
+    {% if not message %}
+        <div class="form-group">
+            <label for="phone">Ваш номер например (+79990001122):</label>
+            <input type="text" name="phone" id="phone" class="form-control" placeholder="Введите номер телефона"
+                   required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Отправить код</button>
+    {% endif %}
+</form>
+</body>
+</html>
+{% endblock %}
