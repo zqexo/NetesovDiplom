@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "20877735-7a92-4f0e-bbe3-304a16394c22",
+		"name": "NetesovDiplom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38430260"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/api/profile/?phone=79789782995",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMwODIwODc4LCJpYXQiOjE3MzA4MTk5NzgsImp0aSI6IjFkMThkOWFhNjdmODQ5ZmZhYmY3M2M3ZTVkZjRlYTQwIiwidXNlcl9pZCI6NH0.rw9j3A714Ge7R6UWhZV1smNBk3WBYj1uAnl4Xb8ItIg",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "phone",
+						"value": "79789782995",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"79789782995\",\r\n    \"invite_code\": \"1183CZ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/profile/?phone=79789782995",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"profile",
+						""
+					],
+					"query": [
+						{
+							"key": "phone",
+							"value": "79789782995"
+						},
+						{
+							"key": "invite_code",
+							"value": "1183CZ",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/auth/code/",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMwNTY4MTg4LCJpYXQiOjE3MzA1NjcyODgsImp0aSI6ImRhZTQ2ZGRlNTg2YTRjZDY5NDYzOTAxOTgwYTg1NTk0IiwidXNlcl9pZCI6NH0.M_YmbN5Bbgz8QyCWafqTyMquhhPnT07FkIWpaDQkF60",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"phone\": \"79789782995\",\r\n  \"code\": \"3015\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/auth/code/"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/auth/phone/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"+79789782995\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/auth/phone/"
+			},
+			"response": []
+		}
+	]
+}
