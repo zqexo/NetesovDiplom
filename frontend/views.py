@@ -144,7 +144,7 @@ class ReferralActivationView(View):
                 current_user.save()
 
                 # Успешный редирект на профиль текущего пользователя
-                success_url = reverse("user_profile")  # Переходим на свой профиль
+                success_url = reverse("user-profile")  # Переходим на свой профиль
                 return redirect(success_url)
 
             except User.DoesNotExist:
